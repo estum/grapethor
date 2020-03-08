@@ -8,10 +8,10 @@ Options:
                                    # Default: api
   -d, [--db=DB]                    # Use specific database
                                    # Default: sqlite
-                                   # Possible values: sqlite, postgresql, mysql
-  -o, [--orm=ORM]                  # Use specific ORM
+                                   # Possible values: sqlite, postgresql, mysql, mongodb
+  -o, [--orm=ORM]                  # Use specific ORM/ODM (use proper for specific DB)
                                    # Default: activerecord
-                                   # Possible values: activerecord
+                                   # Possible values: activerecord, mongoid
   -s, [--server=SERVER]            # Preconfigure web server
                                    # Default: thin
                                    # Possible values: thin, puma

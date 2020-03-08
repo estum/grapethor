@@ -46,14 +46,14 @@ module Grapethor
     class_option :db,        aliases: '-d',
                              type: :string,
                              default: 'sqlite',
-                             enum: %w[sqlite postgresql mysql],
+                             enum: %w[sqlite postgresql mysql mongodb],
                              desc: 'Use specific database'
 
     class_option :orm,       aliases: '-o',
                              type: :string,
                              default: 'activerecord',
-                             enum: %w[activerecord],
-                             desc: 'Use specific ORM'
+                             enum: %w[activerecord mongoid],
+                             desc: 'Use specific ORM/ODM (use proper for specific DB)'
 
     class_option :server,    aliases: '-s',
                              type: :string,

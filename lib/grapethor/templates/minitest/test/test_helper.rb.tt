@@ -2,11 +2,13 @@ ENV['RACK_ENV'] = 'test'
 
 require 'minitest/autorun'
 require_relative '../config/environment'
+<% if app_orm == 'activerecord' -%>
 require 'active_record/fixtures'
 
 ActiveRecord::Base.logger = nil
 ActiveRecord::Migration.verbose = false
-
 DatabaseCleaner.strategy = :transaction
+<% end -%>
+DatabaseCleaner.strategy = :truncation
 
 require_rel './support/*'

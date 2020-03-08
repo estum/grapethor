@@ -3,4 +3,3 @@ class <%= res_name.classify %> < ActiveRecord::Base
   # validates :<%= name %>, presence: true
 <% end -%>
 end
-

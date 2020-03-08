@@ -38,6 +38,13 @@ services:
       - '3306:3306'
     volumes:
       - dbdata:/var/lib/mysql
+<% when 'mongodb' -%>
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - dbdata:/var/lib/mongodb
 <% end -%>
 volumes:
   dbdata:

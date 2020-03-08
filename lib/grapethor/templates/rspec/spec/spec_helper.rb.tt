@@ -2,6 +2,8 @@ ENV['RACK_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
 RSpec.configure do |config|
+<% case app_orm -%>
+<% when 'activerecord' -%>
   config.before :suite do
     ActiveRecord::Migration.verbose = false
     ActiveRecord::Base.logger = nil
@@ -12,6 +14,12 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with :truncation
   end
+<% when 'mongoid' -%>
+  config.before :suite do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with :truncation
+  end
+<% end -%>
 
   config.around :each do |example|
     DatabaseCleaner.cleaning { example.run }

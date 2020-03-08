@@ -7,8 +7,11 @@ require 'erb'
 
 Bundler.require :default, ENV['RACK_ENV']
 
-<% if app_orm == 'activerecord' -%>
+<% case app_orm -%>
+<% when 'activerecord' -%>
 OTR::ActiveRecord.configure_from_file! "config/database.yml"
+<% when 'mongoid' -%>
+Mongoid.load!(File.join(File.dirname(__FILE__), 'mongoid.yml'))
 <% end -%>
 
 require_rel '../app'

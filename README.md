@@ -44,10 +44,10 @@ Options:
                                    # Default: api
   -d, [--db=DB]                    # Use specific database
                                    # Default: sqlite
-                                   # Possible values: sqlite, postgresql, mysql
-  -o, [--orm=ORM]                  # Use specific ORM
+                                   # Possible values: sqlite, postgresql, mysql, mongodb
+  -o, [--orm=ORM]                  # Use specific ORM/ODM
                                    # Default: activerecord
-                                   # Possible values: activerecord
+                                   # Possible values: activerecord, mongoid
   -s, [--server=SERVER]            # Preconfigure web server
                                    # Default: thin
                                    # Possible values: thin, puma
@@ -118,6 +118,7 @@ Note: ':id' request path parameter is implicitly used as primary key. There is n
 Model attribute types available for specific ORM:
 
 - activerecord: `bigint, binary, boolean, date, datetime, decimal, float, integer, numeric, string, text, time`
+- mongoid: `bigdecimal boolean date datetime float integer string symbol time`
 
 ### Create Endpoint
 ```

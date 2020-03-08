@@ -1,5 +1,6 @@
 module API<%= api_version %>
   class <%= res_name.classify.pluralize %> < Grape::API
+<% if app_orm == 'activerecord' -%>
     rescue_from NotFoundError, ActiveRecord::RecordNotFound do |exception|
       error!('<%= res_name.classify %> not found', 404)
     end
@@ -7,6 +8,7 @@ module API<%= api_version %>
     rescue_from ActiveRecord::RecordInvalid do |exception|
       error!(exception.message, 409)
     end
+<% end -%>
 
 
     helpers do

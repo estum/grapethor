@@ -63,6 +63,7 @@ module Grapethor
     def create_resource
       report("Creating new resource...") do
         directory "templates/resource", "#{app_path}"
+        directory "templates/resource_#{app_orm}", "#{app_path}"
         directory "templates/resource_#{app_test_framework}", "#{app_path}"
 
         insert_into_file "#{app_path}/api/#{api_version}/base.rb",

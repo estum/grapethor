@@ -12,10 +12,6 @@ module Grapethor
           type: 'Integer',
           sample: 123456789
         },
-        # binary: {
-        #   type: '',
-        #   sample:
-        # },
         boolean: {
           type: 'Boolean',
           sample: true
@@ -51,6 +47,44 @@ module Grapethor
         text: {
           type: 'String',
           sample: "MyText"
+        },
+        time: {
+          type: 'Time',
+          sample: Time.now
+        }
+      },
+      mongoid: {
+        bigdecimal: {
+          type: 'BigDecimal',
+          sample: BigDecimal(123.45, 2)
+        },
+        boolean: {
+          type: 'Boolean',
+          sample: true
+        },
+        date: {
+          type: 'Date',
+          sample: Date.today
+        },
+        datetime: {
+          type: 'DateTime',
+          sample: DateTime.now
+        },
+        float: {
+          type: 'Float',
+          sample: 123.45
+        },
+        integer: {
+          type: 'Integer',
+          sample: 123
+        },
+        string: {
+          type: 'String',
+          sample: 'MyString'
+        },
+        symbol: {
+          type: 'Symbol',
+          sample: :mysymbol
         },
         time: {
           type: 'Time',

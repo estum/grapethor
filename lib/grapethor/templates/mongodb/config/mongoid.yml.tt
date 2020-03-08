@@ -1,0 +1,35 @@
+local_defaults: &local_defaults
+  hosts:
+<% if app_docker? -%>
+    - db:27017
+<% else -%>
+    - localhost:27017
+<% end -%>
+
+
+development:
+  clients:
+    default:
+      database: <%= app_name.downcase %>_development
+      <<: *local_defaults
+      options:
+        server_selection_timeout: 1
+
+test:
+  clients:
+    default:
+      database: <%= app_name.downcase %>_test
+      <<: *local_defaults
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+production:
+  clients:
+    default:
+      database: <%= ENV['DB'] %>
+      hosts:
+        - <%% ENV['DB_HOST'] -%%>
+        # - <%% ENV['DB_HOST_1'] -%%>
+        # - <%% ENV['DB_HOST_2'] -%%>

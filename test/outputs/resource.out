@@ -6,6 +6,7 @@ options: {"path"=>".", "version"=>"test1", "attrs"=>{}}
        exist  
       create  api/test1/things.rb
       create  api/entities/thing.rb
+       exist  
       create  app/models/thing.rb
       create  db/migrations/20190324221801_create_things.rb
        exist  

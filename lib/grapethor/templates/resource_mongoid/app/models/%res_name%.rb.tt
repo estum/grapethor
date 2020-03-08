@@ -1,0 +1,7 @@
+class <%= res_name.classify %>
+  include Mongoid::Document
+<% res_attrs.each_pair do |name, type| -%>
+  field :<%= name %>, type: <%= type.classify %>
+<% end -%>
+end
+
